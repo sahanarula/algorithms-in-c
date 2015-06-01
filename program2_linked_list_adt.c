@@ -51,6 +51,33 @@ int insertElement(int data, int position){
 	}
 }
 
+int deleteElement(int position){
+	struct LinkedList *tmp, *p, *q;
+	int k = 1;
+	if(head == NULL){
+		printf("Linked List is empty");
+		return 0;
+	}
+	else
+	if(position == 1){
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+	else{
+		p = head;
+		tmp = head;
+		while(p!=NULL && k<position){
+			q=p;
+			p = p->next;
+			k++;
+		}
+		tmp = p;
+		q->next = p->next;
+		free(tmp);
+	}
+}
+
 int main()
 {	
 	int num, d;
@@ -62,6 +89,9 @@ int main()
 		insertElement(d, 1);
 		num--;
 	}
+	printf("count is %d\n", countElements(head));
+	deleteElement(1);
+	deleteElement(3);
 	printf("count is %d\n", countElements(head));
     return 0;
 }
