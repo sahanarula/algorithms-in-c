@@ -1,5 +1,5 @@
 /* Author: Sahil Narula
-Date: 01-June-2015
+Date: 01 June 2015 (Monday)
 Description: Displays all n combinations of binary digits
 */
   
