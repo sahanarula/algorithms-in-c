@@ -1,7 +1,7 @@
 /* Author: Sahil Narula
-Date: 18 June 2015 (Thursday)
-Time: 18:33
-Description: Selection sort algo
+Date: 19 June 2015 (Friday)
+Time: 00:49
+Description: Bubble Sort
 */
   
 #include<stdio.h>
@@ -15,16 +15,16 @@ void pr(int *stack, int size){
 	}
 }
 
-int selectionSort(int *stack, int size){
+void bubbleSort(int *stack, int size){
 	int temp, i, j;
 	for (i = 0; i < size; i++)
 	{
-		for (j = i+1; j < size; j++)
+		for (j = 0; j < size-i-1; j++)
 		{
-			if(stack[i] > stack[j]){
-				temp = stack[i];
-				stack[i] = stack[j];
-				stack[j] = temp;
+			if(stack[j] > stack[j+1]){
+				temp = stack[j];
+				stack[j] = stack[j+1];
+				stack[j+1] = temp;
 			}
 		}
 	}
@@ -43,9 +43,9 @@ int main()
 	stack[7] = 8;
 	stack[8] = 6;
 	stack[9] = 7;
-
     int size = sizeof(stack) / sizeof(stack[0]);
-	selectionSort(stack, size);
+
+	bubbleSort(&stack[0], size);
 	pr(stack, size);
     return 0;
 }
